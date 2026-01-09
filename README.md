@@ -1,8 +1,13 @@
 # @dreamer/validator
 
-一个用于 Deno 的数据验证库，提供类型验证、对象结构验证、自定义验证规则等功能。
+> 一个兼容 Deno 和 Bun 的数据验证库，提供类型验证、对象结构验证、自定义验证规则等功能
 
-## 功能
+[![JSR](https://jsr.io/badges/@dreamer/validator)](https://jsr.io/@dreamer/validator)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+---
+
+## 🎯 功能
 
 数据验证库，用于验证表单数据、API 参数、配置等，支持服务端和客户端。
 
@@ -50,10 +55,6 @@
 - 数据转换和清理（验证时自动转换类型）
 - 数据校验（导入数据、用户输入）
 
-## 优先级
-
-⭐⭐⭐⭐⭐
-
 ## 安装
 
 ```bash
@@ -62,12 +63,14 @@ deno add jsr:@dreamer/validator
 
 ## 环境兼容性
 
-- **Deno 版本**：要求 Deno 2.5 或更高版本
-- **服务端**：✅ 支持（Deno 运行时）
+- **运行时要求**：Deno 2.5+ 或 Bun 1.0+
+- **服务端**：✅ 支持（兼容 Deno 和 Bun 运行时）
 - **客户端**：✅ 支持（浏览器环境）
 - **依赖**：无外部依赖（纯 TypeScript 实现）
 
-## 示例用法
+---
+
+## 🚀 快速开始
 
 ### 基础类型验证
 
@@ -601,10 +604,30 @@ string()
 - **类型推断**：完整的 TypeScript 类型支持，编译时类型检查
 
 
-## 备注
+## 📝 备注
 
 - 支持服务端和客户端，API 完全一致
 - 完整的 TypeScript 类型支持，提供优秀的开发体验
 - 错误消息支持国际化，可以自定义错误消息
 - 支持验证时自动转换类型，方便数据处理
 - 适合表单验证、API 参数验证、配置验证等场景
+
+---
+
+## 🤝 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+---
+
+## 📄 许可证
+
+MIT License - 详见 [LICENSE.md](./LICENSE.md)
+
+---
+
+<div align="center">
+
+**Made with ❤️ by Dreamer Team**
+
+</div>

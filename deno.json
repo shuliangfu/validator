@@ -1,13 +1,14 @@
 {
   "name": "@dreamer/validator",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-beta.2",
   "license": "MIT",
   "exports": {
-    ".": "./src/mod.ts"
+    ".": "./src/mod.ts",
+    "./client": "./src/client/mod.ts"
   },
   "publish": {
     "include": [
-      "src/mod.ts",
+      "src/**/*.ts",
       "LICENSE.md",
       "README.md"
     ],
@@ -32,6 +33,6 @@
     }
   },
   "imports": {
-    "@dreamer/test": "jsr:@dreamer/test@^1.0.0-alpha.1"
+    "@dreamer/test": "jsr:@dreamer/test@^1.0.0-beta.6"
   }
 }
