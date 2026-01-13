@@ -1,5 +1,52 @@
 # @dreamer/validator
 
+> ⚠️ **重要通知：此库已迁移，不再维护**
+
+<div align="center" style="background-color: #fff3cd; border: 2px solid #ffc107; border-radius: 8px; padding: 20px; margin: 20px 0;">
+
+## 🚨 此库已迁移到 @dreamer/utils
+
+**`@dreamer/validator` 已合并到 `@dreamer/utils` 库，此库不再维护。**
+
+### 📦 新的使用方式
+
+```typescript
+// ❌ 旧方式（已废弃）
+import { validate, string, number } from "jsr:@dreamer/validator";
+
+// ✅ 新方式（推荐）
+import { validate, string, number } from "jsr:@dreamer/utils/validator";
+```
+
+### 🔄 迁移指南
+
+1. **更新导入路径**：
+   - 将 `jsr:@dreamer/validator` 替换为 `jsr:@dreamer/utils/validator`
+   - API 完全兼容，无需修改代码逻辑
+
+2. **更新依赖**：
+   ```bash
+   # 移除旧依赖
+   deno remove jsr:@dreamer/validator
+
+   # 添加新依赖
+   deno add jsr:@dreamer/utils
+   ```
+
+3. **查看新文档**：
+   - 📖 [@dreamer/utils 文档](https://jsr.io/@dreamer/utils)
+   - 📖 [validator 详细文档](https://jsr.io/@dreamer/utils/doc/~/validator)
+
+### ⚠️ 注意
+
+- 此库的 JSR 包可能仍然可用，但**不再更新和维护**
+- 所有新功能和修复都在 `@dreamer/utils` 中
+- 建议尽快迁移到新库
+
+</div>
+
+---
+
 > 一个兼容 Deno 和 Bun 的数据验证库，提供类型验证、对象结构验证、自定义验证规则等功能
 
 [![JSR](https://jsr.io/badges/@dreamer/validator)](https://jsr.io/@dreamer/validator)
@@ -57,8 +104,15 @@
 
 ## 安装
 
+> ⚠️ **此库已迁移，请使用新库**
+
 ```bash
+# ❌ 旧方式（已废弃，不再维护）
 deno add jsr:@dreamer/validator
+
+# ✅ 新方式（推荐）
+deno add jsr:@dreamer/utils
+# 然后使用：import { validate, string, number } from "jsr:@dreamer/utils/validator"
 ```
 
 ## 环境兼容性
@@ -72,10 +126,16 @@ deno add jsr:@dreamer/validator
 
 ## 🚀 快速开始
 
+> ⚠️ **注意：以下示例使用旧导入路径，请迁移到 `jsr:@dreamer/utils/validator`**
+
 ### 基础类型验证
 
 ```typescript
-import { validate, string, number, email, url, boolean } from "jsr:@dreamer/validator";
+// ⚠️ 旧导入（已废弃）
+// import { validate, string, number, email, url, boolean } from "jsr:@dreamer/validator";
+
+// ✅ 新导入（推荐）
+import { validate, string, number, email, url, boolean } from "jsr:@dreamer/utils/validator";
 
 // 字符串验证
 const result1 = validate("hello", string().min(3).max(10));
@@ -110,7 +170,8 @@ const result8 = validate(true, boolean());
 ### 对象结构验证
 
 ```typescript
-import { validate, object, string, number, array, optional } from "jsr:@dreamer/validator";
+// ⚠️ 注意：已迁移到 jsr:@dreamer/utils/validator
+import { validate, object, string, number, array, optional } from "jsr:@dreamer/utils/validator";
 
 // 定义验证模式
 const userSchema = object({
@@ -143,7 +204,8 @@ if (result.success) {
 ### 嵌套对象验证
 
 ```typescript
-import { validate, object, string, number } from "jsr:@dreamer/validator";
+// ⚠️ 注意：已迁移到 jsr:@dreamer/utils/validator
+import { validate, object, string, number } from "jsr:@dreamer/utils/validator";
 
 const addressSchema = object({
   street: string().required(),
@@ -179,7 +241,8 @@ const result = validate(user, userSchema);
 ### 数组验证
 
 ```typescript
-import { validate, array, string, number, object } from "jsr:@dreamer/validator";
+// ⚠️ 注意：已迁移到 jsr:@dreamer/utils/validator
+import { validate, array, string, number, object } from "jsr:@dreamer/utils/validator";
 
 // 字符串数组
 const tagsSchema = array(string()).min(1).max(10);
@@ -206,7 +269,8 @@ const result = validate(users, usersSchema);
 ### 条件验证
 
 ```typescript
-import { validate, object, string, number, when } from "jsr:@dreamer/validator";
+// ⚠️ 注意：已迁移到 jsr:@dreamer/utils/validator
+import { validate, object, string, number, when } from "jsr:@dreamer/utils/validator";
 
 const userSchema = object({
   type: string().oneOf(["admin", "user"]).required(),
@@ -231,7 +295,8 @@ const userSchema = object({
 ### 自定义验证规则
 
 ```typescript
-import { validate, string, custom } from "jsr:@dreamer/validator";
+// ⚠️ 注意：已迁移到 jsr:@dreamer/utils/validator
+import { validate, string, custom } from "jsr:@dreamer/utils/validator";
 
 // 自定义验证函数
 const passwordSchema = string()
@@ -254,7 +319,8 @@ const result = validate("MyPassword123", passwordSchema);
 ### 异步验证
 
 ```typescript
-import { validateAsync, string, customAsync } from "jsr:@dreamer/validator";
+// ⚠️ 注意：已迁移到 jsr:@dreamer/utils/validator
+import { validateAsync, string, customAsync } from "jsr:@dreamer/utils/validator";
 
 // 异步验证：检查用户名是否已存在
 const usernameSchema = string()
@@ -276,7 +342,8 @@ const result = await validateAsync("alice", usernameSchema);
 ### 验证转换
 
 ```typescript
-import { validate, string, number, transform } from "jsr:@dreamer/validator";
+// ⚠️ 注意：已迁移到 jsr:@dreamer/utils/validator
+import { validate, string, number, transform } from "jsr:@dreamer/utils/validator";
 
 // 自动转换类型
 const userSchema = object({
@@ -308,7 +375,8 @@ const result = validate(user, userSchema);
 ### 默认值
 
 ```typescript
-import { validate, object, string, number, optional } from "jsr:@dreamer/validator";
+// ⚠️ 注意：已迁移到 jsr:@dreamer/utils/validator
+import { validate, object, string, number, optional } from "jsr:@dreamer/utils/validator";
 
 const userSchema = object({
   name: string().required(),
@@ -334,7 +402,8 @@ const result = validate(user, userSchema);
 ### 错误消息定制
 
 ```typescript
-import { validate, string, number, setMessages } from "jsr:@dreamer/validator";
+// ⚠️ 注意：已迁移到 jsr:@dreamer/utils/validator
+import { validate, string, number, setMessages } from "jsr:@dreamer/utils/validator";
 
 // 设置全局错误消息
 setMessages({
@@ -358,7 +427,8 @@ const userSchema = object({
 ### API 参数验证
 
 ```typescript
-import { validate, object, string, number, array } from "jsr:@dreamer/validator";
+// ⚠️ 注意：已迁移到 jsr:@dreamer/utils/validator
+import { validate, object, string, number, array } from "jsr:@dreamer/utils/validator";
 import { Request } from "jsr:@dreamer/http";
 
 // API 路由参数验证
@@ -404,7 +474,8 @@ export async function POST(request: Request) {
 ### 表单验证
 
 ```typescript
-import { validate, object, string, email, number } from "jsr:@dreamer/validator";
+// ⚠️ 注意：已迁移到 jsr:@dreamer/utils/validator
+import { validate, object, string, email, number } from "jsr:@dreamer/utils/validator";
 
 // 前端表单验证
 const formSchema = object({
@@ -464,7 +535,8 @@ function handleSubmit(formData: any) {
 ### 验证链
 
 ```typescript
-import { validate, string, chain } from "jsr:@dreamer/validator";
+// ⚠️ 注意：已迁移到 jsr:@dreamer/utils/validator
+import { validate, string, chain } from "jsr:@dreamer/utils/validator";
 
 // 多个验证规则组合
 const emailSchema = chain(
@@ -485,7 +557,8 @@ const result = validate("user@example.com", emailSchema);
 ### 错误收集（收集所有错误）
 
 ```typescript
-import { validateAll, object, string, number } from "jsr:@dreamer/validator";
+// ⚠️ 注意：已迁移到 jsr:@dreamer/utils/validator
+import { validateAll, object, string, number } from "jsr:@dreamer/utils/validator";
 
 const userSchema = object({
   name: string().min(2).required(),
@@ -507,7 +580,8 @@ const result = validateAll(user, userSchema);
 ### 验证结果处理
 
 ```typescript
-import { validate, object, string, number } from "jsr:@dreamer/validator";
+// ⚠️ 注意：已迁移到 jsr:@dreamer/utils/validator
+import { validate, object, string, number } from "jsr:@dreamer/utils/validator";
 
 const userSchema = object({
   name: string().required(),
